@@ -8,7 +8,8 @@ const userCreateValidation = ()=> {
         body("email")
             .isString()
             .withMessage("o e-mail é obrigatorio")
-            .isEmail().withMessage("insira um email valido"),
+            .isEmail()
+            .withMessage("insira um email valido"),
         body("password")
             .isString()
             .withMessage("A Senha é obrigatorio")
@@ -29,6 +30,20 @@ const userCreateValidation = ()=> {
 
 };
 
+const loginValidation = ()=>{
+    return [
+        body("email")
+            .isString()
+            .withMessage("o e-mail é obrigatorio")
+            .isEmail()
+            .withMessage("insira um email valido"),
+        body("password")
+            .isString()
+            .withMessage("A Senha é obrigatorio")
+    ]
+}
+
 module.exports = {
     userCreateValidation,
+    loginValidation,
 }

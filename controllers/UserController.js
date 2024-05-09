@@ -43,8 +43,20 @@ const register = async(req,res) =>{
         _id: newUser._id,
         token: generateToken(newUser._id),
     });
+};
+
+const login = (req,res) =>{
+    res.send("login")
+}
+
+const getCurrentUser = async(req,res) =>{
+    const user = req.user;
+
+    res.status(200).json(user)
 }
 
 module.exports = {
     register,
+    login,
+    getCurrentUser,
 };
