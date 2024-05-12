@@ -10,7 +10,7 @@ const userCreateValidation = ()=> {
             .withMessage("o e-mail é obrigatorio")
             .isEmail()
             .withMessage("insira um email valido"),
-        body("password")
+        body("  ")
             .isString()
             .withMessage("A Senha é obrigatorio")
             .isLength({min: 5})

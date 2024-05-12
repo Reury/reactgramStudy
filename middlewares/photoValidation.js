@@ -19,6 +19,10 @@ const photoInsertValidation = () => {
     ];
   };
 
+  const photoUpdateValidation= ()=>{
+    
+  }
+
   module.exports = 
   {
     photoInsertValidation,

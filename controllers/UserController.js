@@ -42,7 +42,7 @@ const register = async(req,res) =>{
 // return user with token 
     res.status(201).json({
         _id: newUser._id,
-        profileImage: user.profileImage,
+        profileImage: newUser.profileImage,
         token: generateToken(newUser._id),
     });
 };
@@ -87,7 +87,7 @@ const update = async(req,res)=>{
 
     const reqUser = req.user
 
-    const user = await User.findById(mongoose.Types.ObjectId(reqUser._id)).select("-password");
+    const user = await User.findById(new mongoose.Types.ObjectId(reqUser._id)).select("-password");
 
     if(name){
         user.name = name;
@@ -95,8 +95,9 @@ const update = async(req,res)=>{
     if(password){
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password,salt);
+        user.password = passwordHash;
     }
-    user.password = passwordHash;
+    
 
     if(profileImage){
         user.profileImage = profileImage;
