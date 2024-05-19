@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <nav id="nav">
       <Link to="/">ReactGram</Link>
-      <form >
+      <form  id="search-form">
         <BsSearch></BsSearch>
         <input type="text" name="search" id="search" />
       </form>
